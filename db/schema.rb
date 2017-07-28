@@ -11,24 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621005843) do
+ActiveRecord::Schema.define(version: 20170727005305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
-    t.string   "city",         limit: 255
-    t.string   "state",        limit: 255
-    t.string   "country",      limit: 255
-    t.string   "name",         limit: 255
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",       limit: 255, default: "pending"
+    t.string   "status",       default: "pending"
     t.integer  "submitter_id"
     t.float    "rating"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "address",      limit: 255
+    t.string   "address"
     t.integer  "holes_count"
   end
 
@@ -48,10 +48,17 @@ ActiveRecord::Schema.define(version: 20170621005843) do
 
   add_index "holes", ["course_id"], name: "index_holes_on_course_id", using: :btree
 
+  create_table "layouts", force: :cascade do |t|
+    t.integer  "turn_id"
+    t.integer  "hole_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.integer  "photoable_id"
-    t.string   "photoable_type", limit: 255
-    t.string   "url",            limit: 255
+    t.string   "photoable_type"
+    t.string   "url"
     t.integer  "uploader_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -102,16 +109,16 @@ ActiveRecord::Schema.define(version: 20170621005843) do
   add_index "turns", ["scorecard_id"], name: "index_turns_on_scorecard_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",             limit: 255
-    t.string   "email",                  limit: 255
+    t.string   "first_name"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest",        limit: 255
-    t.string   "auth_token",             limit: 255
-    t.string   "last_name",              limit: 255
-    t.string   "middle_name",            limit: 255
-    t.string   "avatar_url",             limit: 255
-    t.string   "password_reset_token",   limit: 255
+    t.string   "password_digest"
+    t.string   "auth_token"
+    t.string   "last_name"
+    t.string   "middle_name"
+    t.string   "avatar_url"
+    t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
   end
 
