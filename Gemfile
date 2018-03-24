@@ -30,12 +30,18 @@ gem 'active_model_serializers'
 
 # Authorization
 gem 'pundit'
+gem 'jwt', '~> 1.5', '>= 1.5.3'
 
 # Coverage
 gem 'coveralls', require: false
 gem 'simplecov', '~> 0.7.1'
 
 gem 'kaminari'
+
+gem 'slack-ruby-client'
+
+# Modern CORS solution
+gem 'rack-cors'
 
 group :production do
   gem 'rails_12factor'
