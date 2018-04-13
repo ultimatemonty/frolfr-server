@@ -1,12 +1,13 @@
 version: "2"
-app:
-  build: .
-  environment:
-    PORT: "3000"
-    BIND: "0.0.0.0"
-  ports:
-    - "3000"
-  links:
-    - db
-db:
-  image: postgres:9.4.5
+services:
+  app:
+    build: .
+    environment:
+      PORT: "3000"
+      BIND: "0.0.0.0"
+    ports:
+      - "3000"
+    links:
+      - db
+  db:
+    image: postgres:9.4.5
