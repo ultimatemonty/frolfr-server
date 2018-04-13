@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__). "load_envvars")
+require File.join(File.dirname(__FILE__), "load_envvars")
 
 # Set up gems listed in the Gemfile.
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
