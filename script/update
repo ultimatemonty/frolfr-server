@@ -10,6 +10,6 @@ script/bootstrap
 
 echo "==> Updating db..."
 # run all database migrations to ensure everything is up to date.
-bin/rake db:create || true
-bin/rake db:migrate
-bin/rake db:seed
+bundle exec rake db:create:all
+bundle exec rake db:schema:load
+bundle exec rake db:seed

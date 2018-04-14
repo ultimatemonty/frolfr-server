@@ -2,11 +2,14 @@
 # Based on http://chrisstump.online/2016/02/20/docker-existing-rails-application/
 FROM ruby:2.3.1-slim
 
-ENV RAILS_ROOT /app
+WORKDIR /app
 
-RUN mkdir -p $RAILS_ROOT/tmp/pids
+# RUN groupadd -g 999 frolfr && \
+#     useradd -r -u 999 -g frolfr frolfr
+# USER frolfr
 
-WORKDIR $RAILS_ROOT
+RUN mkdir -p /app/tmp/pids
+RUN chmod 777 /app/tmp/pids
 
 # Install packages
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev postgresql-client

@@ -11,6 +11,8 @@ script/bootstrap
 
 echo "===> Setting up DB..."
 # reset database to a fresh state.
-bin/rake db:create db:schema:load db:seed
+bin/rake db:create
+bin/rake db:schema:load
+bin/rake db:seed
 
 echo " ===> App us now ready to go!"
