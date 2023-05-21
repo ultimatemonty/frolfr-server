@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   post 'login', to: 'jsonapi/sessions#create'
-  post '/api/authorizations', to: 'jsonapi/sessions#create'
+  get 'current_user', to: 'json/sessions#current_user'
 
   match '/', via: [:options], to: 'application#cors_preflight_check'
   match '*unmatched', via: [:options], to: 'application#cors_preflight_check'
