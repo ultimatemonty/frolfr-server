@@ -22,3 +22,6 @@ config/cloudinary.yml
 # Ignore all environment variables
 .env*
 
+.code-workspace/
+.DS_Store
+**/.DS_Store
