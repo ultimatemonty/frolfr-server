@@ -38,7 +38,7 @@ chris = User.create!(
   first_name: 'Chris',
   last_name: 'McCuller',
   password: 'password',
-  email: 'chris@frolfr.com',
+  email: 'chris@themccullers.com',
   password_confirmation: 'password'
 )
 

@@ -4,11 +4,7 @@ module Jsonapi
 
     def index
       if params['me']
-        if user == context[:current_user]
-          render json: serialize(user), status: :ok
-        else
-          render json: {}, status: 404
-        end
+        render json: serialize(@current_user), status: :ok if @current_user == context[:current_user]
       else
         super
       end
@@ -16,8 +12,8 @@ module Jsonapi
 
     private
 
-    def serialize(user, serializer: Jsonapi::UserResource)
-      JSONAPI::ResourceSerializer.new(serializer).serialize_to_hash(serializer.new(user, nil))
+    def serialize(user)
+      JSONAPI::ResourceSerializer.new(Jsonapi::UserResource).serialize_to_hash(Jsonapi::UserResource.new(user))
     end
   end
 end
